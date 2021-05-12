@@ -1,3 +1,3 @@
 import discord
 
-discord.Embed=(title="")
+discord.Embed=(title="e")
