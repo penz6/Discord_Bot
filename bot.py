@@ -30,9 +30,9 @@ async def on_message(message):
             await message.channel.send(bot_response)
 
 #radomizer
-@slash.slash(name="Select_Game")
-async def _test(ctx: "Selects a game"):
-    await ctx.send(game_embed)
+@slash.slash(name="select_game", description="Selects a game so you don't have to")
+async def _gamepicker(ctx):
+    await ctx.send(embed=game_embed)
 
 @bot.event
 async def on_connect():
