@@ -20,7 +20,7 @@ logger.setLevel(logging.CRITICAL)
 async def on_ready():
     print("Things are maybe working")
 
-
+#NPL response
 @bot.event
 async def on_message(message):
        if "chad" in message.content.lower():
