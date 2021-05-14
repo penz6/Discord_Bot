@@ -5,13 +5,16 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import logging
 from discord_slash import SlashCommand, SlashContext
 from token_2 import token_2
+from embed import game_embed
 
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.default())
+slash = SlashCommand(bot, sync_commands=True)
 chatbot = ChatBot("Steve")
 client = discord.Client()
 trainer = ChatterBotCorpusTrainer(chatbot)
 logger = logging.getLogger() 
 logger.setLevel(logging.CRITICAL)
+
 
 @bot.event
 async def on_ready():
@@ -26,10 +29,10 @@ async def on_message(message):
             bot_response = chatbot.get_response(user_input)
             await message.channel.send(bot_response)
 
-@slash.slash(name="test")
-async def _test(ctx: SlashContext):
-    embed = discord.Embed(title="embed test")
-    await ctx.send(content="test", embeds=[embed])
+#radomizer
+@slash.slash(name="Select_Game")
+async def _test(ctx: "Selects a game"):
+    await ctx.send(game_embed)
 
 @bot.event
 async def on_connect():
