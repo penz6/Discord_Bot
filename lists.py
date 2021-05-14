@@ -3,5 +3,5 @@
 games = [
     'Roblox',
     'Minecraft',
-    'War Thunder',
+    'War Thunder'
 ]
