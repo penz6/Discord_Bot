@@ -1,11 +1,14 @@
+import logging
+import random
+
 import discord
 from chatterbot import ChatBot
-from discord.ext import commands
 from chatterbot.trainers import ChatterBotCorpusTrainer
-import logging
-from discord_slash import SlashCommand, SlashContext
+from discord.ext import commands
+from discord_slash import SlashCommand
 from token_2 import token_2
-from embed import game_embed
+
+from lists import games
 
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.default())
 slash = SlashCommand(bot, sync_commands=True)
@@ -32,6 +35,8 @@ async def on_message(message):
 #radomizer
 @slash.slash(name="select_game", description="Selects a game so you don't have to")
 async def _gamepicker(ctx):
+    random_game = random.choice(games)
+    game_embed = discord.Embed(title="Here is your random game!", description=random_game, color=0x845883)
     await ctx.send(embed=game_embed)
 
 @bot.event
