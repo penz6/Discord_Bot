@@ -1,7 +1,7 @@
 
 
 games = [
-    'Roblox'
-    'Minecraft'
-    'War Thunder'
+    'Roblox',
+    'Minecraft',
+    'War Thunder',
 ]
