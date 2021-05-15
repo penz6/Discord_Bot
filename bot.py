@@ -59,7 +59,7 @@ async def _robloxdata(ctx):
     emilyonline = requests.get('https://api.roblox.com/users/1670729656/onlinestatus/')
     emilyonline_json = emilyonline.json()
     emilystatus = emilyonline_json['IsOnline']
-    embedRoblox = discord.Embed(title="Here is the statuses you asked for!", color=0x845883)
+    embedRoblox = discord.Embed(title="Here are statuses you asked for!", color=0x845883)
     embedRoblox.add_field(name="Is Penn online?", value=pennstatus, inline=False)
     embedRoblox.add_field(name="Is Bancroft online?", value=banstatus, inline=False)
     embedRoblox.add_field(name="Is Will online?", value=willstatus, inline=False)
