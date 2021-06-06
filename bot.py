@@ -71,7 +71,7 @@ async def _robloxdata(ctx):
 @bot.event
 async def on_connect():
     await bot.change_presence(
-        activity=discord.Game(name="Use joinhoney.com/ref/1h0z5sz to make me happy :)"))
+        activity=discord.Game(name="Happy pride month! 🏳️‍🌈"))
 
 
 bot.run(token_2)
