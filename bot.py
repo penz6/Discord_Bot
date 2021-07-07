@@ -1,18 +1,10 @@
-import logging
 import discord
-from token import token_1
-
-from lists import games
+from token_2 import token_2
+from discord.ext import commands
 
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.default())
-slash = SlashCommand(bot, sync_commands=True)
-chatbot = ChatBot("Steve")
-client = discord.Client()
-trainer = ChatterBotCorpusTrainer(chatbot)
-logger = logging.getLogger()
-logger.setLevel(logging.CRITICAL)
-
-
+check = "<:check:862204980144373790>"
+nope = "<:nope:862205092161519616>"
 @bot.event
 async def on_ready():
     print("Things are maybe working")
@@ -23,8 +15,10 @@ async def on_ready():
 @commands.is_owner()
 async def on_message(message):
     if "poll" in message.content.lower():
-        checkandx = ["<:check:862204980144373790>", "<:nope:862205092161519616>"]
-        await add_reaction(checkandx)
+        check1 = '<:check:862204980144373790'
+        nope = '<:nope:862205092161519616>'
+        await message.add_reaction(check1)
+        await message.add_reaction(nope)
 
 @bot.event
 async def on_connect():
@@ -32,4 +26,4 @@ async def on_connect():
         activity=discord.Game(name="Reworked :)"))
 
 
-bot.run(token_1)
+bot.run(token_2)
