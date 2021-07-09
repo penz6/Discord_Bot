@@ -12,9 +12,8 @@ async def on_ready():
 
 #Poll
 @bot.event
-@commands.is_owner()
 async def on_message(message):
-    if "poll" in message.content.lower():
+    if message.author.id == "586273007077687316" and "poll" in message.content.lower():
         check1 = '<:check:862204980144373790'
         nope = '<:nope:862205092161519616>'
         await message.add_reaction(check1)
