@@ -10,7 +10,7 @@ async def on_ready():
     print("Things are maybe working")
 
 
-#Poll
+#Poll / React
 @bot.event
 async def on_message(message):
     if message.author.id == 586273007077687316 and "poll" in message.content.lower():
