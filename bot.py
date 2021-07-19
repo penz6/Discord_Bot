@@ -32,27 +32,12 @@ async def on_message(message):
         await message.add_reaction(emojib)
         await message.add_reaction(emojic)
 
-#4 option / abcd
-@bot.event
-async def on_message(message):
-    if message.author.id == 586273007077687316 and "fourvote" in message.content.lower():
-        emojia = '🇦'
-        emojib = '🇧'
-        emojic = '🇨'
-        emojid = '🇩'
-        await message.add_reaction(emojia)
-        await message.add_reaction(emojib)
-        await message.add_reaction(emojic)
-        await message.add_reaction(emojid)
-
-
 #help command
 @slash.slash(name="poll",description="This is only really useful to admins")
 async def poll(ctx):
     embedpollhelp = discord.Embed(title="Poll Commands", description="Only really useful to admins")
     embedpollhelp.add_field(name="Check and X", value="Have the word poll in you message", inline=False)
     embedpollhelp.add_field(name="3 choices or ABC", value="Have abc in your message", inline=False)
-    embedpollhelp.add_field(name="4 choices or ABCD", value="Have fourvote in your message", inline=False)
     await ctx.send(embed=embedpollhelp, hidden=True)
 
 
