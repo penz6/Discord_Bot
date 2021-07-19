@@ -16,28 +16,17 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if message.author.id == 586273007077687316 and "poll" in message.content.lower():
-        check1 = '<:check:862204980144373790>'
+        check1 = '<:check:862204980144373790'
         nope = '<:nope:862205092161519616>'
         await message.add_reaction(check1)
         await message.add_reaction(nope)
 
-#3 option / abc
-@bot.event
-async def on_message(message):
-    if message.author.id == 586273007077687316 and "abc" in message.content.lower():
-        emojia = '🇦'
-        emojib = '🇧'
-        emojic = '🇨'
-        await message.add_reaction(emojia)
-        await message.add_reaction(emojib)
-        await message.add_reaction(emojic)
 
 #help command
 @slash.slash(name="poll",description="This is only really useful to admins")
 async def poll(ctx):
     embedpollhelp = discord.Embed(title="Poll Commands", description="Only really useful to admins")
     embedpollhelp.add_field(name="Check and X", value="Have the word poll in you message", inline=False)
-    embedpollhelp.add_field(name="3 choices or ABC", value="Have abc in your message", inline=False)
     await ctx.send(embed=embedpollhelp, hidden=True)
 
 
