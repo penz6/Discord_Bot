@@ -49,11 +49,11 @@ async def on_message(message):
 #help command
 @slash.slash(name="poll",description="This is only really useful to admins")
 async def poll(ctx):
-    embedpollhelp = discord.Embed(title="Poll Commands", description="Only really useful to admins", color=0x00ff00)
+    embedpollhelp = discord.Embed(title="Poll Commands", description="Only really useful to admins", color=0x607466)
     embedpollhelp.add_field(name="Check and X", value="Have the word poll in you message", inline=False)
     embedpollhelp.add_field(name="3 choices or ABC", value="Have abc in your message", inline=False)
     embedpollhelp.add_field(name="4 choices or ABCD", value="Have abcd in your message", inline=False)
-    await ctx.send(embed=embedpollhelp)
+    await ctx.send(embed=embedpollhelp, hidden=True)
 
 
 #status
