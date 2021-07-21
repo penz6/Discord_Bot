@@ -2,6 +2,7 @@ import discord
 from token_2 import token_2
 from discord.ext import commands
 from discord_slash import SlashCommand
+from discord_slash.utils.manage_commands import create_option
 
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.default())
 slash = SlashCommand(bot, sync_commands=True)
@@ -21,6 +22,20 @@ async def on_message(message):
         await message.add_reaction(check1)
         await message.add_reaction(nope)
 
+@slash.slash(name="poll",description="Poll with a check and x",options=[
+               create_option(
+                 name="pollmessage",
+                 description="Put poll content here",
+                 option_type=3,
+                 required=true
+               )
+             ])
+async def test(ctx, pollmessage: str):
+    check1 = '<:check:862204980144373790'
+    nope = '<:nope:862205092161519616>'
+    await ctx.send(content={pollmessage})
+    await message.add_reaction(check1)
+    await message.add_reaction(nope)
 
 #help command
 @slash.slash(name="poll",description="This is only really useful to admins")
