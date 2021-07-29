@@ -40,7 +40,7 @@ async def poll(ctx, pollmessage: str):
 @bot.event
 async def on_connect():
     await bot.change_presence(
-        activity=discord.Game(name="Reworked :)"))
+        activity=discord.Game(name="Speedrunning legit"))
 
 
 bot.run(token_2)
