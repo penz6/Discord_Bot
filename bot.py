@@ -49,11 +49,27 @@ async def poll(ctx, pollmessage: str):
                     create_permission(717869653946531962, SlashCommandPermissionType.ROLE, True)
                   ])
 async def mute(ctx, user: discord.Member):
-    muterole = discord.utils.get(member.server.roles, name='Muted')
-    await ctx.add_roles(user, muteroll)
+    muterole = ctx.guild.get_role(710621437043540041)
+    await user.add_roles(muterole)
     await ctx.send(content="Success!")
-else:
-   await ctx.send(content="Error! Is the user already muted?")
+
+#unmute command
+@slash.slash(name="unmute",description="Unmute people",default_permission=False,options=[
+               create_option(
+                 name="user",
+                 description="The user you want to unmute",
+                 option_type=6,
+                 required=True
+               )
+             ])
+@slash.permission(guild_id=699702428588703828,
+                  permissions=[
+                    create_permission(717869653946531962, SlashCommandPermissionType.ROLE, True)
+                  ])
+async def mute(ctx, user: discord.Member):
+    muterole = ctx.guild.get_role(710621437043540041)
+    await user.remove_roles(muterole)
+    await ctx.send(content="Success!")
 
 #status
 @bot.event
