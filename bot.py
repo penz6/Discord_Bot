@@ -19,7 +19,7 @@ async def on_ready():
 
 #announcement button
 @bot.event
-async def on_component(ctx: announcementbutton, custom_id=announcement):
+async def on_component(ctx: announcementbutton, custom_id=52):
   announcementrole = ctx.guild.get_role(739529929955213482)
   await user.add_roles(announcementrole)
 
@@ -88,7 +88,7 @@ async def mute(ctx, user: discord.Member):
 async def reactrol(ctx):
   await ctx.send(content="Click the button to be informed when we annonce things!", components=[
                                     create_actionrow(
-                                        create_button(style=ButtonStyle.green, label="Announcement Role!", custom_id=announcement))
+                                        create_button(style=ButtonStyle.green, label="Announcement Role!", custom_id=52))
                                     ])
 
 
