@@ -64,7 +64,10 @@ async def mute(ctx, user: discord.Member):
     muterole = ctx.guild.get_role(710621437043540041)
     await user.add_roles(muterole)
     await ctx.send(content="Success!")
-    await logchannel.send(ctx.author.id, "has muted", user)
+    muteembed = discord.Embed(title="A mute event has occured", color=0x845883)
+    muteembed.add_field(name="Muter?", value=discord.Memeber, inline=False)
+    muteembed.add_field(name="Whos has been muted?", value=user, inline=False)
+    await logchannel.send(embed=muteembed)
 
 #unmute command
 @slash.slash(name="unmute",description="Unmute people",default_permission=False,options=[
