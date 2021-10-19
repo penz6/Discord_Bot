@@ -12,6 +12,7 @@ from discord_slash.model import ButtonStyle
 bot = commands.Bot(command_prefix=".", intents=discord.Intents.default())
 slash = SlashCommand(bot, sync_commands=True)
 
+
 #startup message
 @bot.event
 async def on_ready():
@@ -53,14 +54,17 @@ async def poll(ctx, pollmessage: str):
                  required=True
                )
              ])
+             
 @slash.permission(guild_id=699702428588703828,
                   permissions=[
                     create_permission(717869653946531962, SlashCommandPermissionType.ROLE, True)
                   ])
 async def mute(ctx, user: discord.Member):
+    logchannel = bot.get_channel(900162713928470558)
     muterole = ctx.guild.get_role(710621437043540041)
     await user.add_roles(muterole)
     await ctx.send(content="Success!")
+    await logchannel.send(ctx.author.id + "has muted" + user)
 
 #unmute command
 @slash.slash(name="unmute",description="Unmute people",default_permission=False,options=[
@@ -79,6 +83,7 @@ async def mute(ctx, user: discord.Member):
     muterole = ctx.guild.get_role(710621437043540041)
     await user.remove_roles(muterole)
     await ctx.send(content="Success!")
+    await ctx.mutechannel
 
 #react role
 @slash.slash(name="createannouncerole",description="Create a react message for the announcement role",default_permission=False)
@@ -91,6 +96,9 @@ async def reactroll(ctx):
                                     create_actionrow(
                                         create_button(style=ButtonStyle.green, label="📣", custom_id='announcementbutton'))
                                     ])
+
+
+
 
 
 #status
