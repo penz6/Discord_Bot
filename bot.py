@@ -103,6 +103,7 @@ async def reactroll(ctx):
                                         create_button(style=ButtonStyle.green, label="📣", custom_id='announcementbutton'))
                                     ])
 
+#clear command
 @slash.slash(name="clear",description="Clear x amount of messages",default_permission=False,options=[
                create_option(
                  name="messages",
