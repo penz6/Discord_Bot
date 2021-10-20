@@ -64,8 +64,8 @@ async def mute(ctx, user: discord.Member):
     muterole = ctx.guild.get_role(710621437043540041)
     await user.add_roles(muterole)
     await ctx.send(content="Success!")
-    muteembed = discord.Embed(title="A mute event has occured", color=0x845883)
-    muteembed.add_field(name="Muter?", value=discord.Memeber, inline=False)
+    muteembed = discord.Embed(title="Someones been muted", color=0x845883)
+    muteembed.add_field(name="Muter?", value=ctx.author, inline=False)
     muteembed.add_field(name="Whos has been muted?", value=user, inline=False)
     await logchannel.send(embed=muteembed)
 
@@ -84,10 +84,13 @@ async def mute(ctx, user: discord.Member):
                   ])
 async def mute(ctx, user: discord.Member):
     muterole = ctx.guild.get_role(710621437043540041)
+    logchannel = bot.get_channel(900162713928470558) 
     await user.remove_roles(muterole)
     await ctx.send(content="Success!")
-    await ctx.mutechannel
-
+    muteembed = discord.Embed(title="Someones been unmuted", color=0x845883)
+    muteembed.add_field(name="Unmuter?", value=ctx.author, inline=False)
+    muteembed.add_field(name="Whos has been unmuted?", value=user, inline=False)
+    await logchannel.send(embed=muteembed)
 #react role
 @slash.slash(name="createannouncerole",description="Create a react message for the announcement role",default_permission=False)
 @slash.permission(guild_id=699702428588703828,
