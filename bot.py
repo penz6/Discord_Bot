@@ -103,6 +103,21 @@ async def reactroll(ctx):
                                         create_button(style=ButtonStyle.green, label="📣", custom_id='announcementbutton'))
                                     ])
 
+@slash.slash(name="clear",description="Clear x amount of messages",default_permission=False,options=[
+               create_option(
+                 name="messages",
+                 description="The amound of messages you want to delete",
+                 option_type=4,
+                 required=True
+               )
+             ])
+@slash.permission(guild_id=699702428588703828,
+                  permissions=[
+                    create_permission(717869653946531962, SlashCommandPermissionType.ROLE, True)
+                  ])
+async def messageclear(ctx):
+  await delete_messages(messages)
+  await ctx.send('Done', delete_after=4)
 
 
 
