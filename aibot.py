@@ -1,9 +1,9 @@
 from chatterbot import ChatBot
 import interactions
-#from token_2 import token_2
+from token_2 import token_2
 from chatterbot.trainers import ChatterBotCorpusTrainer
 #imports
-bot = interactions.Client(token="TEST")
+bot = interactions.Client(token=token_2)
 #bot token
 bot.start()
 #starts bot
