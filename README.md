@@ -1,2 +1,2 @@
-# Chad_Bot
-epic games epic
+# Discord Bot
+Private Discord Bot
