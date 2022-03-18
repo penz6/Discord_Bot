@@ -18,7 +18,7 @@ async def on_message_create(message):
     if "fream" in message.content.lower():
          user_input = message.content
          bot_response = chatbot.get_response(user_input)
-         await message.channel.send(bot_response)
+         await ctx.respond(bot_response)
         
 print("started")
 bot.start()
