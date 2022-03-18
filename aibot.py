@@ -5,7 +5,6 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 #imports
 bot = interactions.Client(token=token_2)
 #bot token
-bot.start()
 #starts bot
 chatbot = ChatBot("Fream")
 trainer = ChatterBotCorpusTrainer(chatbot)
@@ -21,6 +20,6 @@ async def on_message_create(message):
          bot_response = chatbot.get_response(user_input)
          await message.channel.send(bot_response)
         
-
-bot.start()
+print("started")
+bot.start(token_2)
 
