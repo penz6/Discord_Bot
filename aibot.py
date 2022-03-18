@@ -13,7 +13,7 @@ trainer.train(
 )
 #trains chatbot
 
-@bot.event
+@client.event
 async def on_message_create(message):
     if "fream" in message.content.lower():
          user_input = message.content
@@ -21,5 +21,5 @@ async def on_message_create(message):
          await message.channel.send(bot_response)
         
 print("started")
-bot.start(token_2)
+bot.start()
 
