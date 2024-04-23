@@ -1,2 +1,1 @@
-# Chad_Bot
-epic games epic
+# Discord bot written in python
